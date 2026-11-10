@@ -42,17 +42,27 @@ namespace Guignolee.Views
             }
         }
 
-        private void EnregistrerClick(object sender, RoutedEventArgs e)
+        private async void EnregistrerClick(object sender, RoutedEventArgs e)
         {
             if (ViewModel.DonEdit.EstValide)
             {
-                Frame.Navigate(typeof(RegistrePage));
-            }
-        }
+                ContentDialog dialogueSuppression = new ContentDialog
+                {
+                    Title = "Modification",
+                    Content =  "Voulez-vous confirmer la modification de ce don?",
+                    PrimaryButtonText = "Enregistrer",
+                    CloseButtonText = "Annuler"
+                };
 
-        private void AnnulerClick(object sender, RoutedEventArgs e)
-        {
-            Frame?.Navigate(typeof(RegistrePage));
+                dialogueSuppression.XamlRoot = this.XamlRoot;
+
+                ContentDialogResult result = await dialogueSuppression.ShowAsync();
+
+                if (result == ContentDialogResult.Primary)
+                {
+                    Frame.Navigate(typeof(RegistrePage));
+                }
+            }
         }
     }
 }
