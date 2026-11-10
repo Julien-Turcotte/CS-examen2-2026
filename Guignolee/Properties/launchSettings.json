@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Guignolee (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Guignolee (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
