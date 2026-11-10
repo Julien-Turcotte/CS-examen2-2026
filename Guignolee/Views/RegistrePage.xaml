@@ -82,10 +82,17 @@
                         <ListView.ItemTemplate>
                             <DataTemplate x:DataType="viewmodels:DonViewModel">
                                 <StackPanel Padding="0,8">
-                                    <TextBlock
-                                        FontWeight="SemiBold"
-                                        Text="{x:Bind Contenu, Mode=OneWay}"
-                                        TextWrapping="Wrap" />
+                                    <StackPanel Orientation="Horizontal" Spacing="4">
+                                        <TextBlock
+                                            FontWeight="SemiBold"
+                                            Text="{x:Bind Contenu, Mode=OneWay}"
+                                            TextWrapping="Wrap" />
+                                        <TextBlock
+                                            FontWeight="SemiBold"
+                                            Text="(Périssable)"
+                                            Visibility="{x:Bind EstPerissable}" />
+                                    </StackPanel>
+
                                     <TextBlock
                                         FontSize="12"
                                         Foreground="#555555"
@@ -139,14 +146,14 @@
                             <TextBox
                                 Header="Donateur"
                                 PlaceholderText="Prénom Nom"
-                                Text="" />
+                                Text="{x:Bind ViewModel.NouveauDon.Donateur, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                         </StackPanel>
 
                         <StackPanel Grid.Column="1">
                             <TextBox
                                 Header="Contenu du don"
                                 PlaceholderText="Ex. : Conserves de soupe"
-                                Text="" />
+                                Text="{x:Bind ViewModel.NouveauDon.Contenu, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                         </StackPanel>
 
                         <StackPanel Grid.Column="2">
@@ -154,7 +161,7 @@
                                 Header="Quantité"
                                 MaxLength="3"
                                 PlaceholderText="Ex. : 24"
-                                Text="" />
+                                Text="{x:Bind ViewModel.NouveauDon.Quantite, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                         </StackPanel>
 
                         <CheckBox
@@ -162,7 +169,7 @@
                             Margin="0,28,0,0"
                             VerticalAlignment="Top"
                             Content="Périssable"
-                            IsChecked="False" />
+                            IsChecked="{x:Bind ViewModel.NouveauDon.EstPerissable, Mode=TwoWay}" />
 
                         <Button
                             Grid.Column="4"
