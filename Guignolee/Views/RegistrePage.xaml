@@ -147,6 +147,11 @@
                                 Header="Donateur"
                                 PlaceholderText="Prénom Nom"
                                 Text="{x:Bind ViewModel.NouveauDon.Donateur, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            <ItemsView Foreground="Coral" ItemsSource="{x:Bind ViewModel.NouveauDon.GetErrors('Donateur'), Mode=OneWay}">
+                                <ItemsView.Resources>
+                                    <SolidColorBrush x:Key="ItemContainerPointerOverBackground" Color="Transparent" />
+                                </ItemsView.Resources>
+                            </ItemsView>
                         </StackPanel>
 
                         <StackPanel Grid.Column="1">
@@ -154,6 +159,11 @@
                                 Header="Contenu du don"
                                 PlaceholderText="Ex. : Conserves de soupe"
                                 Text="{x:Bind ViewModel.NouveauDon.Contenu, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            <ItemsView Foreground="Coral" ItemsSource="{x:Bind ViewModel.NouveauDon.GetErrors('Contenu'), Mode=OneWay}">
+                                <ItemsView.Resources>
+                                    <SolidColorBrush x:Key="ItemContainerPointerOverBackground" Color="Transparent" />
+                                </ItemsView.Resources>
+                            </ItemsView>
                         </StackPanel>
 
                         <StackPanel Grid.Column="2">
@@ -162,6 +172,11 @@
                                 MaxLength="3"
                                 PlaceholderText="Ex. : 24"
                                 Text="{x:Bind ViewModel.NouveauDon.Quantite, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            <ItemsView Foreground="Coral" ItemsSource="{x:Bind ViewModel.NouveauDon.GetErrors('Quantite'), Mode=OneWay}">
+                                <ItemsView.Resources>
+                                    <SolidColorBrush x:Key="ItemContainerPointerOverBackground" Color="Transparent" />
+                                </ItemsView.Resources>
+                            </ItemsView>
                         </StackPanel>
 
                         <CheckBox
@@ -178,7 +193,8 @@
                             Background="#A4262C"
                             Click="btnAjouter_Click"
                             Content="Ajouter"
-                            Foreground="White" />
+                            Foreground="White"
+                            IsEnabled="{x:Bind ViewModel.NouveauDon.EstValide}" />
                     </Grid>
                 </StackPanel>
             </Border>

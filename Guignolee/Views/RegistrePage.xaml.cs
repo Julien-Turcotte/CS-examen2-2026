@@ -51,7 +51,10 @@ namespace Guignolee.Views
 
         private void btnAjouter_Click(object sender, RoutedEventArgs e)
         {
-            ViewModel.AjouterDon();
+            if (ViewModel.NouveauDon.EstValide)
+            {
+                ViewModel.AjouterDon();
+            }
         }
     }
 }
