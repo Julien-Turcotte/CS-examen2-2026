@@ -78,7 +78,7 @@
                         Margin="0,8"
                         AutomationProperties.Name="Dons à remettre"
                         ItemsSource="{x:Bind ViewModel.Dons, Mode=OneWay}"
-                        SelectedItem="{x:Bind ViewModel.DonSelectionne, Mode=OneWay}">
+                        SelectedItem="{x:Bind ViewModel.DonSelectionne, Mode=TwoWay}">
                         <ListView.ItemTemplate>
                             <DataTemplate x:DataType="viewmodels:DonViewModel">
                                 <StackPanel Padding="0,8">

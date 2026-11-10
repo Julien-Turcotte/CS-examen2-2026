@@ -46,7 +46,7 @@ namespace Guignolee.Views
 
         private void btnMarquerRemis_Click(object sender, RoutedEventArgs e)
         {
-            // TODO: À compléter
+             ViewModel.RemettreDon();
         }
 
         private void btnAjouter_Click(object sender, RoutedEventArgs e)

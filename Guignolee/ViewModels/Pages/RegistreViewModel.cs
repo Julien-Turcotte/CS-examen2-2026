@@ -89,5 +89,16 @@ namespace Guignolee.ViewModels.Pages
             ChargerDonnees();
             NouveauDon = new DonViewModel(new Don());
         }
+
+        public void RemettreDon()
+        {
+            if (DonSelectionne != null)
+            {
+                DonSelectionne.EstRemis = true;
+                _donDataProvider.ModifierDon(new Don(DonSelectionne.Donateur, DonSelectionne.Contenu, DonSelectionne.Quantite, DonSelectionne.EstPerissable));
+                Dons.Remove(DonSelectionne);
+                RaisePropertyChanged(nameof(EtatDons));
+            }
+        }
     }
 }
