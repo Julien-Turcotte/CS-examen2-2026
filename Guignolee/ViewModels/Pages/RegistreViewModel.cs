@@ -71,7 +71,7 @@ namespace Guignolee.ViewModels.Pages
         {
             // TODO: À compléter selon la documentation de la méthode.
             Dons.Clear();
-            foreach (Don don in _donDataProvider.GetDons().Where(d => d.EstRemis == false).OrderByDescending(d => d.EstPerissable))
+            foreach (Don don in _donDataProvider.GetDons().Where(d => d.EstRemis == false).OrderBy(d => d.DateReception).OrderByDescending(d => d.EstPerissable))
             {
                 Dons.Add(new DonViewModel(don));
             }
