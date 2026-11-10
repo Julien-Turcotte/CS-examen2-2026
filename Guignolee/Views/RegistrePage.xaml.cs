@@ -34,6 +34,17 @@ namespace Guignolee.Views
             Loaded += MaisonPage_Loaded;
         }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            if (e.Parameter is DonViewModel don)
+            {
+                ViewModel.ModifierDon(don);
+                ViewModel.DonSelectionne = don;
+            }
+        }
+
         private void MaisonPage_Loaded(object sender, RoutedEventArgs e)
         {
             ViewModel.ChargerDonnees();
@@ -41,7 +52,10 @@ namespace Guignolee.Views
 
         private void btnModifier_Click(object sender, RoutedEventArgs e)
         {
-            // TODO: À compléter
+            if (ViewModel.DonSelectionne != null)
+            {
+                Frame.Navigate(typeof(ModificationDonPage), ViewModel.DonSelectionne);
+            }
         }
 
         private void btnMarquerRemis_Click(object sender, RoutedEventArgs e)

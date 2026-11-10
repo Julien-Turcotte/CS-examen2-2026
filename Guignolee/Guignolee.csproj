@@ -15,6 +15,7 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Assets\Images\geralt-christmas-9185561.jpg" />
+    <None Remove="Views\ModificationDonPage.xaml" />
     <None Remove="Views\RegistrePage.xaml" />
   </ItemGroup>
 
@@ -48,6 +49,11 @@
     <Content Update="Assets\Images\geralt-christmas-9185561.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\ModificationDonPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Views\RegistrePage.xaml">

@@ -100,5 +100,18 @@ namespace Guignolee.ViewModels.Pages
                 RaisePropertyChanged(nameof(EtatDons));
             }
         }
+
+        public void ModifierDon(DonViewModel don)
+        {
+            Don donModifie = new Don
+            {
+                Id = don.Id,
+                Donateur = don.Donateur,
+                Contenu = don.Contenu,
+                Quantite = don.Quantite,
+                EstPerissable = don.EstPerissable
+            };
+            _donDataProvider.ModifierDon(donModifie);
+        }
     }
 }
