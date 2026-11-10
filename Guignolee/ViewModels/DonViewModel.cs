@@ -51,6 +51,7 @@ namespace Guignolee.ViewModels
 
         [Required(ErrorMessage = "La quantité est obligatoire.")]
         [Range ( 1, 100, ErrorMessage = "1 à 100.")]
+        [RegularExpression ("^\\d+$", ErrorMessage = "La quantité doit être un nombre")]
         public int Quantite
         {
             get { return _don.Quantite; }
