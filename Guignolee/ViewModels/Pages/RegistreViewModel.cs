@@ -70,7 +70,12 @@ namespace Guignolee.ViewModels.Pages
         public void ChargerDonnees()
         {
             // TODO: À compléter selon la documentation de la méthode.
-
+            Dons.Clear();
+            foreach (Don don in _donDataProvider.GetDons())
+            {
+                Dons.Add(new DonViewModel(don));
+            }
+            RaisePropertyChanged(nameof(EtatDons));
             DonSelectionne = null;
         }
 
